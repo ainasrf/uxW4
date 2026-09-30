@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Make Your Own Ramyeon</title>
+
+    <style>
+
+        body{
+            margin: 0;
+            height: 100vh;
+
+            background-image: url("background.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            text-align: center;
+            font-family: Helvetica, Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        header{
+            width: 100%;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 45px;
+            box-sizing: border-box;
+
+            border-bottom: 1px solid #e94720;
+            color: #e94720;
+        }
+
+        .logo{
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        #reset{
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #reset:hover{
+            opacity: 0.5;
+        }
+
+
+        h1{
+            margin-top: 40px;
+            margin-bottom: 5px;
+
+            font-size: 55px;
+            font-weight: bold;
+
+            color: #e94720;
+        }
+
+
+        h2{
+            margin-top: 0;
+            margin-bottom: 0;
+
+            font-size: 25px;
+            font-weight: normal;
+
+            color: #d69b28;
+        }
+
+
+        #ramen{
+            width: 600px;
+            max-width: 80%;
+
+            margin-top: 10px;
+
+            cursor: pointer;
+        }
+
+
+        #instruction{
+            margin-top: 0;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            color: #e94720;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <div class="logo">2AM RAMYEON</div>
+        <div id="reset">START OVER ↻</div>
+
+    </header>
+
+
+
+    <h1>MAKE YOUR OWN RAMYEON</h1>
+
+    <h2>라면 만들기</h2> 
+
+    <img src="ramen0.png" id="ramen">
+
+
+    <p id="instruction">
+        click the pot to start ♫
+    </p>
+
+
+    <audio src="water.wav" id="water"></audio>
+
+    <audio src="fire.wav" id="fire"></audio>
+
+    <audio src="boil.wav" id="boil"></audio>
+
+    <audio src="seasoning.wav" id="seasoning"></audio>
+
+    <audio src="egg.wav" id="egg"></audio>
+
+
+
+    <script>
+
+        let step = 0;
+
+
+        ramen.onclick = function(){
+
+
+            if(step == 0){
+
+                ramen.src = "ramen1.png";
+
+                water.currentTime = 0;
+                water.play();
+
+                instruction.innerHTML = "pour in the water!";
+
+                step = 1;
+            }
+
+
+            else if(step == 1){
+
+                ramen.src = "ramen2.png";
+
+                fire.currentTime = 0;
+                fire.play();
+
+                instruction.innerHTML = "turn on the stove 🔥";
+
+                step = 2;
+            }
+
+
+            else if(step == 2){
+
+                ramen.src = "ramen3.png";
+
+                boil.currentTime = 0;
+                boil.play();
+
+                instruction.innerHTML = "wait until it boils...";
+
+                step = 3;
+            }
+
+
+
+            else if(step == 3){
+
+                ramen.src = "ramen4.png";
+
+                boil.currentTime = 0;
+                boil.play();
+
+                instruction.innerHTML = "add the noodles!";
+
+                step = 4;
+            }
+
+
+
+            else if(step == 4){
+
+                ramen.src = "ramen5.png";
+                ramen.style.width = "430px";
+
+                seasoning.currentTime = 0;
+                seasoning.play();
+
+                instruction.innerHTML = "add the seasoning 🌶";
+
+                step = 5;
+            }
+
+
+            else if(step == 5){
+
+                ramen.src = "ramen6.png";
+                ramen.style.width = "430px";
+
+                egg.currentTime = 0;
+                egg.play();
+
+                instruction.innerHTML = "완성! 맛있게 드세요 ♡";
+
+                step = 6;
+            }
+
+
+            else{
+
+                ramen.src = "ramen0.png";
+
+                instruction.innerHTML = "click the pot to start ♫";
+
+                step = 0;
+            }
+
+        }
+
+        reset.onclick = function(){
+
+            ramen.src = "ramen0.png";
+            ramen.style.width = "600px";
+            instruction.innerHTML = "click the pot to start ♫";
+            step = 0;
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
